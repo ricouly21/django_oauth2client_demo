@@ -1,0 +1,30 @@
+{% extends "base_template.html" %}
+{% block content %}
+
+<div class="row">
+    <div class="col-md-3">
+        <form method="POST" action="{% url 'login' %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input class="form-control" type="text" id="username" name="username" placeholder="Your username..." value="{{saved_username}}" required />
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input class="form-control" type="password" id="password" name="password" placeholder="Your password..." required/>
+            </div>
+
+            {% if error_message %}
+            <p class="text-danger">{{error_message}}</p>
+            {% endif %}
+
+            <input class="btn btn-primary" type="submit" value="Login"/>
+        </form>
+    </div>
+
+    <div class="col"></div>
+
+</div>
+
+{% endblock %}

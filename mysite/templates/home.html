@@ -1,0 +1,10 @@
+{% extends "base_template.html" %}
+{% block content %}
+
+{% if user %}
+<h1>Welcome, {{user.first_name}} {{user.last_name}}</h1>
+<p>Click <a href="{% url 'logout' %}">here</a> to logout.</p>
+{% else %}
+{% endif %}
+
+{% endblock %}
