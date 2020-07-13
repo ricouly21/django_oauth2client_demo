@@ -4,12 +4,12 @@ from django.shortcuts import render, redirect
 from django.views.generic.base import View
 
 
-api_url = "http://127.0.0.1:8080"
-client_id = "dTO2GgQWgSGVSkizAp1XANaI2sLjtTPv8gRkD0SV"
-client_secret = "mhYpZfvfzqdorxwFC2DDYoiLaNTPIRu2a9e5f3Of2x2HntspFfAxI6fLYsnWvCVZYWkXwn1MgINodoBuhshHzjLay3c2OJWpbR2mKg9tsFOiSpu6ssPC0QRHJFihLKh3"
+api_url = "<backend_url_and_port>"
+client_id = "<your_client_application_id>"
+client_secret = "<your_client_secret>"
 grant_type = "password"
-client_user = "owner"
-client_password = "p@ssw0rD1"
+client_user = "<your_client_username>"
+client_password = "<your_client_password>"
 
 
 class BlogView(View):
