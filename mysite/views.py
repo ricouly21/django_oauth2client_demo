@@ -69,6 +69,74 @@ def login_view(request):
     )
 
 
+def sign_up_view(request):
+    error_message = None
+    cached_form = {
+        "username": '',
+        "email": '',
+        "first_name": '',
+        "last_name": '',
+    }
+
+    if request.method == "POST":
+        request_body = request.POST
+        username = request_body.get('username')
+        email = request_body.get('email')
+        password1 = request_body.get('password1')
+        password2 = request_body.get('password2')
+        first_name = request_body.get('first_name')
+        last_name = request_body.get('last_name')
+
+        cached_form = request.session["SAVED_SIGNUP_FORM"] = {
+            "username": username,
+            "email": email,
+            "first_name": first_name,
+            "last_name": last_name,
+        }
+
+        if password1 != password2:
+            error_message = "ERROR: Passwords do not match."
+            return render(
+                request,
+                template_name="sign-up.html",
+                context={
+                    "cached_form": cached_form,
+                    "error_message": error_message,
+                }
+            )
+
+        url = "{}/api/v1/users/create_user/".format(api_url)
+        headers = construct_headers(request)
+        payload = {
+            "username": username,
+            "email": email,
+            "password": password1,
+            "first_name": first_name,
+            "last_name": last_name,
+        }
+
+        resource = requests.post(url, json=payload, headers=headers)
+        resource_data = resource.json()
+
+        if resource.status_code == 200:
+            user = request.session["USER"] = resource_data
+            if user:
+                return redirect("home")
+
+        else:
+            status_code = resource_data.get("status")
+            error_message = resource_data.get("message")
+
+    return render(
+        request,
+        template_name="sign-up.html",
+        context={
+            "cached_form": cached_form,
+            "error_message": error_message,
+        }
+    )
+
+
 def logout_view(request):
     request.session["USER"] = None
     return redirect("login")

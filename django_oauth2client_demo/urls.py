@@ -18,11 +18,12 @@ from django.contrib import admin
 from django.urls import path
 
 from django_oauth2client_demo.settings import STATIC_URL, STATIC_ROOT
-from mysite.views import BlogView, login_view, logout_view, index_view
+from mysite.views import BlogView, login_view, sign_up_view, logout_view, index_view
 
 urlpatterns = [
     path('', index_view, name="index"),
     path("login/", login_view, name="login"),
+    path("sign_up/", sign_up_view, name="sign-up"),
     path("logout/", logout_view, name="logout"),
     path('home/', BlogView.as_view(), name="home"),
     path('admin/', admin.site.urls),

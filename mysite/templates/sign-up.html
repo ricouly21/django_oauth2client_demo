@@ -1,0 +1,51 @@
+{% extends "base_template.html" %}
+{% block content %}
+
+<div class="row">
+    <div class="col-md-3">
+        <form method="POST" action="{% url 'sign-up' %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input class="form-control" type="text" id="username" name="username" placeholder="Your username..." value="{{cached_form.username}}" required />
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input class="form-control" type="email" id="email" name="email" placeholder="Your email..." value="{{cached_form.email}}" required />
+            </div>
+
+            <div class="form-group">
+                <label for="password1">Password</label>
+                <input class="form-control" type="password" id="password1" name="password1" placeholder="Your password..." required/>
+            </div>
+
+            <div class="form-group">
+                <label for="password2">Confirm Password</label>
+                <input class="form-control" type="password" id="password2" name="password2" placeholder="Your password again..." required/>
+            </div>
+
+            <div class="form-group">
+                <label for="first_name">First Name</label>
+                <input class="form-control" type="text" id="first_name" name="first_name" placeholder="Your first name..." value="{{cached_form.first_name}}" required />
+            </div>
+
+            <div class="form-group">
+                <label for="last_name">Last Name</label>
+                <input class="form-control" type="text" id="last_name" name="last_name" placeholder="Your last name..." value="{{cached_form.last_name}}" required />
+            </div>
+
+            {% if error_message %}
+            <p class="text-danger">{{error_message}}</p>
+            {% endif %}
+
+            <input class="btn btn-success" type="submit" value="Sign up"/>
+            <a class="" href="{% url 'login' %}">Go back to login</a>
+        </form>
+    </div>
+
+    <div class="col"></div>
+
+</div>
+
+{% endblock %}
