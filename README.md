@@ -9,13 +9,12 @@ Please see the backend counterpart, first. (https://github.com/ricouly21/django_
 ```
 pip install -r requirements.txt
 python manage.py migrate
-python manage.py makemigrations accounts
-python manage.py runserver
+python manage.py runserver 0:8000
 ```
 
 2. Edit these values on ```mysite/views.py``` to connect to your own copy of the backend server.
 ```
-api_url = "http://127.0.0.1:8080"
+api_url = "<backend_url_and_port>"
 client_id = "<your_client_application_id>"
 client_secret = "<your_client_secret>"
 grant_type = "password"
