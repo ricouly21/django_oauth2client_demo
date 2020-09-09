@@ -2,7 +2,16 @@
 {% block content %}
 
 {% if user %}
-<h1>Welcome, {{user.first_name}} {{user.last_name}}</h1>
+<h2>Welcome, {{account.user.first_name}} {{account.user.last_name}}</h2>
+
+<h5>Your Account details</h5>
+<ul>
+	<li>Username: {{account.user.username}}</li>
+	<li>Email: {{account.user.email}}</li>
+	<li>Date of birth: {{account.dob}}</li>
+	<li>Date joined: {{account.user.date_joined}}</li>
+</ul>
+
 <p>Click <a href="{% url 'logout' %}">here</a> to logout.</p>
 {% else %}
 {% endif %}
