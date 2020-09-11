@@ -1,15 +1,16 @@
+import os
 import requests
 
 from django.shortcuts import render, redirect
 from django.views.generic.base import View
 
 
-api_url = ""
-client_id = ""
-client_secret = ""
-grant_type = ""
-client_user = ""
-client_password = ""
+api_url = os.getenv('API_URL')
+client_id = os.getenv('CLIENT_ID')
+client_secret = os.getenv('CLIENT_SECRET')
+grant_type = os.getenv('GRANT_TYPE')
+client_user = os.getenv('CLIENT_USER')
+client_password = os.getenv('CLIENT_PASSWORD')
 
 
 class BlogView(View):

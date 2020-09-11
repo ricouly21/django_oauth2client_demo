@@ -12,14 +12,15 @@ python manage.py migrate
 python manage.py runserver 0:8000
 ```
 
-2. Edit these values on ```mysite/views.py``` to connect to your own copy of the backend server.
+2. Rename ```django_oauth2client_demo/.env.copy``` into ```django_oauth2client_demo/.env``` and replace these values.
 ```
-api_url = "<backend_url_and_port>"
-client_id = "<your_client_application_id>"
-client_secret = "<your_client_secret>"
-grant_type = "password"
-client_user = "<your_client_username>"
-client_password = "<your_client_password>"
+# API Server Details
+API_URL=<backend_url_and_port>
+CLIENT_ID=<your_client_application_id>
+CLIENT_SECRET=<your_client_secret>
+GRANT_TYPE=password
+CLIENT_USER=<your_client_username>
+CLIENT_PASSWORD=<your_client_username>
 ```
 
 ## Contributors
