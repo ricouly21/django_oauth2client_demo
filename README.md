@@ -1,6 +1,6 @@
 # Django OAuth2 Client Demo
 
-This is a simple application with basic integration to a backend API that uses OAuth2 for authentication and permission to data.
+This is a simple application with basic integration to a backend API that uses OAuth2.0 to provide permission on its resource data.
 
 Please see the backend counterpart, first. (https://github.com/ricouly21/django_oauth2_demo)
 
