@@ -15,12 +15,12 @@ python manage.py runserver 0:8000
 2. Rename ```django_oauth2client_demo/.env.copy``` into ```django_oauth2client_demo/.env``` and replace these values.
 ```
 # API Server Details
-API_URL=<backend_url_and_port>
-CLIENT_ID=<your_client_application_id>
-CLIENT_SECRET=<your_client_secret>
-GRANT_TYPE=password
-CLIENT_USER=<your_client_username>
-CLIENT_PASSWORD=<your_client_username>
+API_URL = <Backend host name and/or port (ex: http://127.0.0.1:8000)>
+CLIENT_ID = <The ID of your application>
+CLIENT_SECRET = <The secret key of your application>
+CLIENT_USER = <Username of Resource Owner>
+CLIENT_PASSWORD = <Password of Resource Owner>
+GRANT_TYPE = <Grant type of your application (ex: password)>
 ```
 
 ## Contributors
